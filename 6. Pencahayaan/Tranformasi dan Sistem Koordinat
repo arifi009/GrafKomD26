@@ -1,0 +1,410 @@
+// Grafika Komputer WebGL - Transformasi dan Sistem Koordinat (Level Menengah - Lanjut)
+
+// Grafika Komputer - Transformasi dan Sistem Koordinat WebGL
+
+::Soal 1::
+Dalam pipeline grafika WebGL, objek awalnya berada pada sistem koordinat ...
+{
+=Object/Model Coordinates
+~Screen Coordinates
+~Camera Coordinates
+~Viewport Coordinates
+}
+
+::Soal 2::
+Fungsi transformasi translasi digunakan untuk ...
+{
+=Memindahkan posisi objek
+~Mengubah ukuran objek
+~Memutar objek
+~Mengubah warna objek
+}
+
+::Soal 3::
+Jika sebuah titik (2,3) ditranslasi dengan vektor (4,-1), maka posisi barunya adalah ...
+{
+=(6,2)
+~(2,2)
+~(4,3)
+~(6,4)
+}
+
+::Soal 4::
+Matriks translasi 2D homogen yang benar adalah ...
+{
+=|1 0 tx; 0 1 ty; 0 0 1|
+~|tx 0 0; 0 ty 0; 0 0 1|
+~|1 tx 0; ty 1 0; 0 0 1|
+~|0 0 tx; 0 0 ty; 1 1 1|
+}
+
+::Soal 5::
+Transformasi scaling dengan faktor (2,3) akan ...
+{
+=Menggandakan lebar dan memperbesar tinggi tiga kali
+~Menggeser objek sejauh 2 dan 3 satuan
+~Memutar objek 2 derajat dan 3 derajat
+~Mengubah warna objek
+}
+
+::Soal 6::
+Sebuah titik (1,2) dikenai scaling (3,2). Koordinat hasilnya adalah ...
+{
+=(3,4)
+~(3,2)
+~(2,6)
+~(6,4)
+}
+
+::Soal 7::
+Pada WebGL, rotasi positif terhadap sumbu Z mengikuti aturan ...
+{
+=Berlawanan arah jarum jam
+~Searah jarum jam
+~Acak
+~Bergantung resolusi layar
+}
+
+::Soal 8::
+Titik (1,0) diputar 90 derajat berlawanan arah jarum jam terhadap titik pusat (0,0). Hasilnya adalah ...
+{
+=(0,1)
+~(1,1)
+~(-1,0)
+~(0,-1)
+}
+
+::Soal 9::
+Urutan transformasi yang paling umum dalam pipeline WebGL adalah ...
+{
+=Model → View → Projection
+~Projection → View → Model
+~View → Projection → Model
+~Projection → Model → View
+}
+
+::Soal 10::
+Matriks yang digunakan untuk merepresentasikan posisi dan orientasi kamera disebut ...
+{
+=View Matrix
+~Projection Matrix
+~Rotation Matrix
+~Transform Matrix
+}
+
+::Soal 11::
+Fungsi utama Projection Matrix adalah ...
+{
+=Memproyeksikan objek 3D ke ruang tampilan
+~Mengatur warna objek
+~Mengubah koordinat dunia menjadi koordinat kamera
+~Menambah jumlah vertex
+}
+
+::Soal 12::
+Dalam Normalized Device Coordinates (NDC) pada WebGL, rentang koordinat x, y, dan z adalah ...
+{
+=-1 sampai 1
+~0 sampai 1
+~-100 sampai 100
+~1 sampai 255
+}
+
+::Soal 13::
+Jika sebuah objek memiliki koordinat x = 1 pada NDC, maka objek berada pada ...
+{
+=Sisi kanan layar
+~Tengah layar
+~Sisi kiri layar
+~Di luar viewport
+}
+
+::Soal 14::
+Perintah shader berikut:
+
+gl_Position = uProjection * uView * uModel * vec4(aPosition,1.0);
+
+menunjukkan bahwa posisi vertex diproses dengan urutan ...
+{
+=Model → View → Projection
+~Projection → View → Model
+~Translation → Rotation → Color
+~Scaling → View → Projection
+}
+
+::Soal 15::
+Mengapa transformasi dalam WebGL umumnya direpresentasikan menggunakan matriks 4x4?
+{
+=Untuk mendukung transformasi 3D menggunakan koordinat homogen
+~Untuk menyimpan warna objek
+~Agar program lebih cepat dikompilasi
+~Untuk menambah jumlah vertex
+}
+
+::Soal 16::
+Jika faktor scaling bernilai kurang dari 1, maka objek akan ...
+{
+=Mengecil
+~Membesar
+~Tetap
+~Berputar
+}
+
+::Soal 17::
+Sistem koordinat dunia (World Coordinate System) digunakan untuk ...
+{
+=Menentukan letak objek dalam suatu scene
+~Menentukan warna objek
+~Menentukan tekstur objek
+~Menentukan ukuran viewport
+}
+
+::Soal 18::
+Dalam WebGL, viewport berfungsi untuk ...
+{
+=Mengubah koordinat NDC menjadi koordinat layar
+~Menentukan posisi kamera
+~Mengatur warna background saja
+~Mengatur pencahayaan
+}
+
+::Soal 19::
+Jika suatu objek terlebih dahulu dirotasi kemudian ditranslasi, hasilnya dibandingkan dengan translasi lalu rotasi akan ...
+{
+=Berbeda karena transformasi matriks tidak komutatif
+~Selalu sama
+~Selalu nol
+~Sama jika objek berwarna merah
+}
+
+::Soal 20::
+Pernyataan yang benar mengenai sistem koordinat pada WebGL adalah ...
+{
+=Vertex akan melalui beberapa sistem koordinat sebelum ditampilkan di layar
+~Koordinat layar digunakan langsung dalam shader vertex
+~Semua vertex harus berada pada koordinat piksel
+~WebGL hanya menggunakan satu sistem koordinat
+}
+
+::Soal 21::
+Perhatikan kode berikut:
+
+const translation = [2, 3, 0];
+
+Transformasi tersebut akan menyebabkan objek ...
+{
+=Bergeser 2 satuan pada sumbu X dan 3 satuan pada sumbu Y
+~Membesar 2 kali pada sumbu X
+~Berputar 3 derajat
+~Berpindah ke koordinat (-2,-3)
+}
+
+::Soal 22::
+Perhatikan kode JavaScript berikut:
+
+mat4.scale(matrix, matrix, [2, 2, 2]);
+
+Efek yang terjadi pada objek adalah ...
+{
+=Ukuran objek menjadi dua kali lebih besar pada semua sumbu
+~Objek berpindah sejauh 2 satuan
+~Objek diputar 2 derajat
+~Objek diproyeksikan ke layar
+}
+
+::Soal 23::
+Perhatikan shader berikut:
+
+gl_Position = vec4(a_position, 0.0, 1.0);
+
+Koordinat vertex yang digunakan berada pada ruang ...
+{
+=Clip Space
+~Screen Space
+~World Space
+~Camera Space
+}
+
+::Soal 24::
+Rentang koordinat clip space pada WebGL sebelum viewport transformation adalah ...
+{
+=-1 hingga 1
+~0 hingga width layar
+~0 hingga height layar
+~0 hingga 255
+}
+
+::Soal 25::
+Perhatikan kode berikut:
+
+mat4.rotateZ(modelMatrix, modelMatrix, Math.PI/2);
+
+Transformasi yang dilakukan adalah ...
+{
+=Rotasi 90 derajat terhadap sumbu Z
+~Rotasi 180 derajat terhadap sumbu Z
+~Scaling sebesar 90%
+~Translasi sejauh PI/2
+}
+
+::Soal 26::
+Jika titik (2,1) diputar 180 derajat terhadap titik pusat (0,0), maka hasilnya adalah ...
+{
+=(-2,-1)
+~(-1,-2)
+~(2,-1)
+~(-2,1)
+}
+
+::Soal 27::
+Dalam pipeline WebGL, matriks View digunakan untuk ...
+{
+=Mengubah koordinat dunia menjadi koordinat kamera
+~Mengubah koordinat kamera menjadi NDC
+~Mengatur resolusi layar
+~Mengatur warna fragment
+}
+
+::Soal 28::
+Perhatikan kode berikut:
+
+mat4.translate(M,M,[3,0,0]);
+mat4.rotateZ(M,M,Math.PI/2);
+
+Urutan transformasi tersebut menunjukkan bahwa objek ...
+{
+=Ditranslasi lalu dirotasi
+~Dirotasi lalu ditranslasi
+~Hanya dirotasi
+~Hanya ditranslasi
+}
+
+::Soal 29::
+Mengapa urutan transformasi penting dalam WebGL?
+{
+=Karena perkalian matriks tidak komutatif
+~Karena JavaScript membaca kode dari kanan ke kiri
+~Karena semua matriks memiliki hasil yang sama
+~Karena viewport mempengaruhi model matrix
+}
+
+::Soal 30::
+Nilai Math.PI pada JavaScript merepresentasikan ...
+{
+=180 derajat
+~90 derajat
+~360 derajat
+~45 derajat
+}
+
+::Soal 31::
+Perhatikan kode berikut:
+
+const radians = 45 * Math.PI / 180;
+
+Tujuan perhitungan tersebut adalah ...
+{
+=Mengubah sudut derajat menjadi radian
+~Mengubah radian menjadi derajat
+~Melakukan scaling
+~Menghitung translasi
+}
+
+::Soal 32::
+Shader berikut digunakan untuk mengirim posisi vertex ke pipeline grafis:
+
+attribute vec3 a_position;
+
+Variabel a_position disebut ...
+{
+=Attribute
+~Uniform
+~Varying
+~Texture
+}
+
+::Soal 33::
+Perhatikan kode:
+
+uniform mat4 u_matrix;
+
+Jenis variabel u_matrix adalah ...
+{
+=Uniform
+~Attribute
+~Buffer
+~Texture
+}
+
+::Soal 34::
+Jika pada NDC suatu vertex memiliki koordinat (-1,0), maka vertex tersebut berada di ...
+{
+=Sisi kiri layar
+~Tengah layar
+~Sisi kanan layar
+~Bagian atas layar
+}
+
+::Soal 35::
+Jika faktor scaling diberi nilai (-1,1,1), maka objek akan ...
+{
+=Terpantul terhadap sumbu YZ
+~Membesar dua kali
+~Berputar 180 derajat
+~Ditranslasi ke arah negatif
+}
+
+::Soal 36::
+Perhatikan kode berikut:
+
+gl.viewport(0, 0, canvas.width, canvas.height);
+
+Fungsi viewport digunakan untuk ...
+{
+=Menentukan area tampilan hasil rendering
+~Mengubah model matrix
+~Mengatur warna objek
+~Mengaktifkan shader
+}
+
+::Soal 37::
+Dalam sistem koordinat dunia, posisi kamera biasanya belum diperhitungkan. Pernyataan tersebut adalah ...
+{
+=Benar
+~Salah
+}
+
+::Soal 38::
+Perhatikan kode berikut:
+
+gl_Position = uProjection * uView * uModel * vec4(aPosition,1.0);
+
+Matriks yang diaplikasikan pertama kali terhadap vertex adalah ...
+{
+=uModel
+~uView
+~uProjection
+~vec4
+}
+
+::Soal 39::
+Jika koordinat sebuah vertex setelah transformasi menghasilkan:
+
+gl_Position = vec4(2.0, 0.0, 0.0, 1.0);
+
+Maka vertex tersebut ...
+{
+=Berada di luar area tampilan NDC
+~Tepat di tengah layar
+~Berada di sisi kiri layar
+~Selalu terlihat oleh kamera
+}
+
+::Soal 40::
+Manakah pernyataan yang paling tepat mengenai hubungan Model Matrix dan World Coordinate System?
+{
+=Model Matrix digunakan untuk menempatkan objek dari local space ke world space
+~Model Matrix digunakan untuk mengubah world space menjadi screen space
+~Model Matrix digunakan untuk mengatur viewport
+~Model Matrix digunakan untuk menyimpan warna objek
+}
